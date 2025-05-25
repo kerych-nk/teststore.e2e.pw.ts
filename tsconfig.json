@@ -12,13 +12,13 @@
     "outDir": "dist",
     "paths": {
       "@app/*": ["app/*"],
+      "@decorator/*": ["decorator/*"],
       "@tests/*": ["tests/*"],
       "@components/*": ["app/components/*"],
       "@fixtures/*": ["app/fixtures/*"],
       "@modals": ["app/modals"],
       "@pages/*": ["app/pages/*"],
-      "@components": ["app/components"],
-      "@types": ["app/types"]
+      "@components": ["app/components"]
     }
   },
   "include": ["**/*.ts"],
