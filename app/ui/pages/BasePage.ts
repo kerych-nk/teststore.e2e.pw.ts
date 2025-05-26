@@ -1,6 +1,6 @@
 import { Page } from "@playwright/test";
-import { Loader } from "../components/Loader.component";
-import { FunctionHelpers } from "../../../utils/helpers/FunctionHelpers";
+import { Loader } from "@components/Loader.component";
+import { FunctionHelpers } from "@helpers/FunctionHelpers";
 import { step } from "@decorator/step";
 
 export abstract class BasePage {
@@ -8,7 +8,7 @@ export abstract class BasePage {
   protected helpers: FunctionHelpers;
   private loader: Loader;
 
-  abstract navigateTo(): void;
+  abstract navigateTo(): Promise<void>;
 
   constructor(page: Page) {
     this.page = page;
@@ -18,6 +18,8 @@ export abstract class BasePage {
 
   @step("Waiting for loader to disappear")
   async waitForLoaderToDisappear() {
-    await this.loader.disappear();
+    if (this.loader) {
+      await this.loader.disappear();
+    }
   }
 }

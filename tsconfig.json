@@ -14,11 +14,13 @@
       "@app/*": ["app/*"],
       "@decorator/*": ["decorator/*"],
       "@tests/*": ["tests/*"],
-      "@components/*": ["app/components/*"],
+      "@components/*": ["app/ui/components/*"],
       "@fixtures/*": ["app/fixtures/*"],
       "@modals": ["app/modals"],
-      "@pages/*": ["app/pages/*"],
-      "@components": ["app/components"]
+      "@pages/*": ["app/ui/pages/*"],
+      "@utils/*": ["utils/*"],
+      "@helpers/*": ["utils/helpers/*"],
+      "@utilTestData/*": ["utils/testData/*"]
     }
   },
   "include": ["**/*.ts"],
