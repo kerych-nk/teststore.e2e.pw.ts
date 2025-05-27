@@ -2,9 +2,9 @@ import { Locator, Page } from "@playwright/test";
 import { BaseComponent } from "./BaseComponent";
 
 export class ProductDescription extends BaseComponent {
-  private titleMain: Locator;
-  private titlePreview: Locator;
-  private titleInOrder: Locator;
+  titleMain: Locator;
+  titlePreview: Locator;
+  titleInOrder: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -18,7 +18,7 @@ export class ProductDescription extends BaseComponent {
   }
 
   async preview() {
-    return this.titlePreview.textContent();
+    return this.titlePreview.first().textContent();
   }
 
   async inOrder() {

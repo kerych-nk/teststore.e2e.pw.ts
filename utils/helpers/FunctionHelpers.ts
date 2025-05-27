@@ -15,7 +15,7 @@ export class FunctionHelpers {
   }
 
   @step("Collect elements")
-  async returnAllLocators(locator) {
+  async returnAllLocators(locator: Locator) {
     await locator.first().waitFor();
     const allSectionLocators = await locator.all();
     return allSectionLocators;
@@ -71,7 +71,7 @@ export class FunctionHelpers {
     }
   }
 
-  async extractNumberFromStr(str) {
+  async extractNumberFromStr(str: string) {
     const extractFrom = str.match(/(\d+)/);
     let numberAmount = 0;
     if (Array.isArray(extractFrom)) {
