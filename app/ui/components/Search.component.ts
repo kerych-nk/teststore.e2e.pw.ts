@@ -16,7 +16,7 @@ export class Search extends BaseComponent {
     await this.searchInput.fill(searchValue);
   }
 
-  async search(item: string) {
+  async searchItem(item: string) {
     await this.type(item);
     await this.page.keyboard.press("Enter");
   }

@@ -2,9 +2,9 @@ import { Locator, Page } from "@playwright/test";
 import { BaseComponent } from "./BaseComponent";
 
 export class ProductDescription extends BaseComponent {
-  titleMain: Locator;
-  titlePreview: Locator;
-  titleInOrder: Locator;
+  readonly titleMain: Locator;
+  readonly titlePreview: Locator;
+  readonly titleInOrder: Locator;
 
   constructor(page: Page) {
     super(page);
