@@ -2,7 +2,7 @@ import { Locator, Page } from "@playwright/test";
 import { BaseComponent } from "./BaseComponent";
 
 export class FilterSections extends BaseComponent {
-  private compositionSection: Locator;
+  readonly compositionSection: Locator;
 
   constructor(page: Page) {
     super(page);

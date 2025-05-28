@@ -18,13 +18,13 @@ export class CategoryPage extends BasePage {
   }
 
   @step("Open category page")
-  async navigateTo(): Promise<void> {
+  async navigateTo() {
     await this.page.goto(this.pageUrl);
     await this.waitForLoaderToDisappear();
   }
 
   @step("Opening product details page from list")
-  async openItem(itemOrder: number = 0): Promise<void> {
+  async openItem(itemOrder: number = 0) {
     const itemLink = this.productDescription.titlePreview.nth(itemOrder);
     await expect(itemLink).toBeVisible({ timeout: 10000 });
     await itemLink.click();
@@ -60,9 +60,47 @@ export class CategoryPage extends BasePage {
   }
 
   @step("Applying each filter and verifying item count")
-  applyEachFilterAndVerifyCount(filterOptionLocators: Locator[]) {
+  async applyEachFilterAndVerifyCount(filterOptionLocators: Locator[]) {
     for (const filterOption of filterOptionLocators) {
       await expect(filterOption).toBeVisible({ timeout: 10000 });
+
+      const filterCheckbox = this.filterSections.checkbox(filterOption);
+      await this.page.waitForLoadState("load");
+      await filterOption.waitFor();
+
+      const waitResponse = this.helpers.responseWaiter(
+        this.filterUpdateRequestUrlPart
+      );
+      await filterCheckbox.click();
+      await expect(filterCheckbox).toBeChecked({ timeout: 20_000 });
+      await waitResponse;
+      await this.waitForLoaderToDisappear();
+
+      const itemsForFilter = await this.getItemCountFromFilter(filterOption);
+
+      const allItems = await this.getAllItemTitleLocators();
+      const exactAmountOfProducts = allItems ? allItems.length : 0;
+      expect(itemsForFilter).toBe(exactAmountOfProducts);
+
+      const waitTillNeededResponseClear = this.helpers.responseWaiter(
+        this.filterUpdateRequestUrlPart
+      );
+      await filterCheckbox.click(); //Second click to deactivate
+      try {
+        await waitTillNeededResponseClear; //Wait for Promise which return responseWaiter
+      } catch (error) {
+        console.warn(
+          `API response for filter deactivation not received or timed out. Error: ${error}`
+        );
+      }
+      await this.waitForLoaderToDisappear();
+      await this.page.waitForLoadState("load");
     }
+  }
+  @step("Get all 'Composition' filter locators")
+  async getAllCompositionFilterLocators() {
+    return this.helpers.returnAllLocators(
+      this.filterSections.compositionSection
+    );
   }
 }
