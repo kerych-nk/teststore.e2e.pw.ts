@@ -8,8 +8,4 @@ export class OrderConfirmation extends BaseComponent {
     super(page);
     this.title = page.locator(".h1.card-title");
   }
-
-  async text() {
-    return this.title.textContent();
-  }
 }
