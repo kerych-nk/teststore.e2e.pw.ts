@@ -42,7 +42,7 @@ export class ProductPage extends BasePage {
     await this.page.waitForLoadState("load");
   }
 
-  @step("Close 'Adedd to cart' confirmation modal")
+  @step("Close 'Added to cart' confirmation modal")
   async closeAddedToCartModal() {
     await this.addedItemComp.clickOnClose();
     await this.addedItemComp.title.waitFor({ state: "hidden" });
@@ -64,7 +64,7 @@ export class ProductPage extends BasePage {
     return this.breadCrumbComp.body;
   }
 
-  @step("Get product page title")
+  @step("Get product title")
   async getProductPageTitle() {
     await expect(this.productDescriptionComp.titleMain).toBeVisible({
       timeout: 5000,

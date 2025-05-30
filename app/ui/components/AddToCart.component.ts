@@ -2,7 +2,6 @@ import { Locator, Page } from "@playwright/test";
 import { BaseComponent } from "./BaseComponent";
 
 export class AddToCart extends BaseComponent {
-  protected root: Locator;
   private body: Locator;
 
   constructor(page: Page) {
