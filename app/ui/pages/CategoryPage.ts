@@ -5,7 +5,7 @@ import { BasePage } from "./BasePage";
 import { step } from "@decorator/step";
 
 export class CategoryPage extends BasePage {
-  private readonly pageUrl: string = "?controller=category&id_category=3";
+  private readonly pageUrl: string = "?id_category=2&controller=category";
   private productDescription: ProductDescription;
   private filterSections: FilterSections;
   private readonly filterUpdateRequestUrlPart: string =
