@@ -4,15 +4,15 @@ import { BaseComponent } from "./BaseComponent";
 export class CartInfo extends BaseComponent {
   private checkoutBtn: Locator;
   private removeItemBtn: Locator;
-  private addedItem: Locator;
-  private productQuantity: Locator;
+  readonly itemQuantityInput: Locator;
+  readonly cartItems: Locator;
 
   constructor(page: Page) {
     super(page);
     this.checkoutBtn = page.locator(".checkout .btn");
     this.removeItemBtn = page.locator(".remove-from-cart .material-icons");
-    this.addedItem = page.locator('[name="product-quantity-spin"]');
-    this.productQuantity = page.locator("li.cart-item");
+    this.itemQuantityInput = page.locator('[name="product-quantity-spin"]');
+    this.cartItems = page.locator("li.cart-item");
   }
 
   async removeItem(itemOrder = 0) {
