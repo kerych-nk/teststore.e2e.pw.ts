@@ -66,9 +66,8 @@ export class ProductPage extends BasePage {
 
   @step("Get product title")
   async getProductPageTitle() {
-    await expect(this.productDescriptionComp.titleMain).toBeVisible({
-      timeout: 5000,
-    });
-    return this.productDescriptionComp.main();
+    const titleLocator = this.productDescriptionComp.titleMain;
+    await expect(titleLocator).toBeVisible();
+    return titleLocator;
   }
 }
