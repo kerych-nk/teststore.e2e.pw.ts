@@ -13,7 +13,10 @@ test.describe("Product Page Navigation and Title Verification", () => {
         productTitle,
         { ignoreCase: true }
       );
-      await expect(await pages.product.getProductPageTitle()).
+      await expect(await pages.product.getProductPageTitle()).toContainText(
+        productTitle,
+        { ignoreCase: true }
+      );
     }
   );
 });
