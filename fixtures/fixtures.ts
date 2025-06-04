@@ -31,5 +31,7 @@ export const loginUser = test.extend<TestFixtures>({
     await page.waitForLoadState();
 
     await use(pages);
+
+    await context.close();
   },
 });
