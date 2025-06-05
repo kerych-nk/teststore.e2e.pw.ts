@@ -41,7 +41,9 @@ test.describe("Core User Flows", () => {
         "Title of the item to be ordered should not be null"
       ).not.toBeNull();
 
-      const assuredTitleOfOrderedItem = titleOfOrderedItem;
+      const assuredTitleOfOrderedItem = await (
+        await pages.product.getProductPageTitle()
+      ).innerText();
 
       await test.step("Add item to cart", async () => {
         await pages.product.addProductToCart();

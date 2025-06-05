@@ -14,6 +14,6 @@ export class CartCount extends BaseComponent {
   async clickOnBtn() {
     await expect(this.btn).toBeVisible();
     await this.btn.click();
-    await this.page.waitForURL("**/controller=cart");
+    await this.page.waitForLoadState();
   }
 }

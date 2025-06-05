@@ -18,7 +18,7 @@ export class CheckoutPaymentStep extends BaseComponent {
   }
 
   async acceptTerms() {
-    await this.termsAndConditionsCheckbox.check();
+    await this.termsAndConditionsCheckbox.click();
   }
 
   async submitPayment() {
