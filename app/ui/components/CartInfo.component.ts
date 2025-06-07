@@ -6,6 +6,7 @@ export class CartInfo extends BaseComponent {
   private removeItemBtn: Locator;
   readonly itemQuantityInput: Locator;
   readonly cartItems: Locator;
+  readonly noItemsMessage: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -13,6 +14,7 @@ export class CartInfo extends BaseComponent {
     this.removeItemBtn = page.locator(".remove-from-cart .material-icons");
     this.itemQuantityInput = page.locator('[name="product-quantity-spin"]');
     this.cartItems = page.locator("li.cart-item");
+    this.noItemsMessage = page.locator(".no-items");
   }
 
   async removeItem(itemOrder = 0) {

@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { expect, Page } from "@playwright/test";
 import { CartInfo } from "../components/CartInfo.component";
 import { BasePage } from "./BasePage";
 import { ProductPage } from "./ProductPage";
@@ -71,5 +71,14 @@ export class CartPage extends BasePage {
   @step("Proceed to checkout")
   async proceedToCheckout() {
     await this.cartInfoComp.proceedToCheckoutBtn();
+  }
+
+  @step("Verify that cart is empty")
+  async verifyCartIsEmpty() {
+    const emptyMessageLocator = this.cartInfoComp.noItemsMessage;
+    await expect(emptyMessageLocator).toBeVisible();
+    await expect(emptyMessageLocator).toContainText(
+      "There are no more items in your cart"
+    );
   }
 }
