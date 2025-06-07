@@ -113,4 +113,33 @@ test.describe("Shopping Cart Functionality", () => {
       });
     }
   );
+  guest(
+    "MyStore010: Header cart counter updates when adding items",
+    async ({ pages }) => {
+      const cartCounterLocator = pages.main.getCartCounter();
+      let expectedCartCounterValue = 1;
+
+      await test.step("Add first item and verify counter shows (1)", async () => {
+        await pages.category.navigateTo();
+        await pages.category.openItem(0);
+        await pages.product.addProductToCart();
+        await pages.product.closeAddedToCartModal();
+
+        await expect(cartCounterLocator).toBeVisible();
+        expect(await cartCounterLocator.innerText()).toContain(
+          `${expectedCartCounterValue}`
+        );
+      });
+
+      await test.step("Add the same product again and verify counter updates to (2)", async () => {
+        await pages.product.addProductToCart();
+        await pages.product.closeAddedToCartModal();
+        expectedCartCounterValue += 1;
+
+        expect(await cartCounterLocator.innerText()).toContain(
+          `${expectedCartCounterValue}`
+        );
+      });
+    }
+  );
 });
