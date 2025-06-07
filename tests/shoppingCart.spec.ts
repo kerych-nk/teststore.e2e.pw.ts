@@ -99,8 +99,17 @@ test.describe("Shopping Cart Functionality", () => {
       await test.step("Remove first item", async () => {
         await pages.cart.removeItemFromCart(0);
         await pages.cart.waitForLoaderToDisappear();
-        const itemsInCart = await pages.cart.getAllCartItems();
-        expect(itemsInCart.length).toBe(expectedAmountItemsInCart - 1);
+        const currentItemCount = await pages.cart.getAllCartItems();
+        expect(currentItemCount.length).toBe(expectedAmountItemsInCart - 1);
+      });
+
+      await test.step("Remove second item", async () => {
+        await pages.cart.removeItemFromCart(0);
+        await pages.cart.waitForLoaderToDisappear();
+      });
+
+      await test.step("Verify the cart is empty", async () => {
+        await pages.cart.verifyCartIsEmpty();
       });
     }
   );
