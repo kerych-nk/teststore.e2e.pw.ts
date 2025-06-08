@@ -70,7 +70,6 @@ npm install
 npx playwright install --with-deps
 ```
 
-````markdown
 ## 🏃‍♂️ Running Tests
 
 ```bash
@@ -86,6 +85,7 @@ npx playwright test --ui
 # Run in a specific browser
 npx playwright test --project=chromium
 ```
+
 ````
 
 ---
@@ -125,3 +125,4 @@ The project uses **GitHub Actions** for continuous integration, configured in `.
 ```
 
 ```
+````
