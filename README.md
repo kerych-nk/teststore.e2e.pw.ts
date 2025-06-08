@@ -54,8 +54,6 @@ Clone the repository:
 
 ## ⚙️ Running Tests
 
-(Тут залишається секція Running Tests, як раніше)
-
 ---
 
 ## 📊 Reporting
