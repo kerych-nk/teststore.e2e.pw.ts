@@ -1,49 +1,56 @@
-# E2E Test Automation Project
+# 🛠️ E2E Test Automation Project
 
-This project contains a suite of E2E (End-to-End) tests for the [MyStore](https://teststore.automationtesting.co.uk) website, written using TypeScript and the Playwright framework.
+This repository contains a suite of **E2E tests** for the [**MyStore**](https://teststore.automationtesting.co.uk) website, written in **TypeScript** with **Playwright**.  
+The goal is to automate key user journeys—product search, cart management, checkout, registration—to ensure the site’s quality and stability.
 
-The goal of the project is to automate key user interaction scenarios—such as product search, cart management, checkout, and registration—to ensure the quality and stability of the site's functionality.
+---
 
 ## ✨ Tech Stack
 
-- **Framework**: &nbsp; ![Playwright](https://img.shields.io/badge/Playwright-45ba4b?style=for-the-badge&logo=playwright&logoColor=white)
-- **Language**: &nbsp; ![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=for-the-badge&logo=typescript&logoColor=white)
-- **Test Data**: &nbsp; ![Faker.js](https://img.shields.io/badge/Faker.js-blue?style=flat&logo=faker)
-- **CI/CD**: &nbsp; ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
-- **Runtime**: &nbsp; ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-- **Package Manager**: &nbsp; ![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
+| &nbsp;                                                                                                         | Tool               | Purpose                 |
+| :------------------------------------------------------------------------------------------------------------- | :----------------- | :---------------------- |
+| ![Playwright](https://img.shields.io/badge/Framework-Playwright-45ba63?logo=playwright&logoColor=white)        | **Playwright**     | E2E test framework      |
+| ![TS](https://img.shields.io/badge/Language-TypeScript-3178C6?logo=typescript&logoColor=white)                 | **TypeScript**     | Strongly-typed language |
+| ![Faker.js](https://img.shields.io/badge/Test%20Data-Faker.js-6a2af6)                                          | **Faker**          | Fake data generation    |
+| ![GH Actions](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white) | **GitHub Actions** | CI pipeline             |
+| ![Node](https://img.shields.io/badge/Runtime-Node.js-18+-339933?logo=nodedotjs&logoColor=white)                | **Node.js 18+**    | JavaScript runtime      |
+| ![npm](https://img.shields.io/badge/Package%20Manager-npm-8+-CB3837?logo=npm&logoColor=white)                  | **npm**            | Dependency management   |
+
+---
 
 ## 🏗️ Architecture & Patterns
 
 The project is built using the following patterns and approaches to ensure clean, maintainable, and scalable code:
 
-- **Page Object Model (POM)**: Each page or significant UI block is represented by a separate class (Page Object).
-- **UI Components**: Reusable elements (forms, modals, etc.) are extracted into separate component classes.
-- **`PageHolder` (`AllPages` in your code)**: An aggregator class that initializes all Page Objects for centralized access.
-- **Custom Playwright Fixtures**: Used to prepare the state before test execution (`guest`, `loginUser`).
-- **`@step` Decorators**: A custom decorator used to wrap methods into `test.step` blocks for detailed reporting.
+- **Page Object Model (POM)** — every page / major block has its own class.
+- **UI Components** — reusable widgets (forms, modals…) extracted into components.
+- **PageHolder** — aggregator that instantiates all Page Objects.
+- **Custom Playwright Fixtures** — prepare state (guest / logged-in) before tests.
+- **`@step` Decorators** — wrap methods in `test.step()` for detailed reports.
+
+---
 
 ## 📁 Project Structure
 
+````text
 .
-├── .github/
-│ └── workflows/ # GitHub Actions CI/CD configuration
-│ └── playwright.yml # Workflow for running tests and publishing reports
-├── app/
-│ ├── ui/
-│ │ ├── components/ # UI Components (forms, modals, counters, etc.)
-│ │ └── pages/ # Page Object classes and the PageHolder (AllPages)
-│ ├── fixtures/ # Custom Playwright fixtures (guest, loginUser)
-│ └── tests/ # Test files (\_.spec.ts)
-├── decorator/
-│ └── step.ts # Implementation of the @step decorator
-├── utils/
-│ ├── helpers/ # Helper classes (FunctionHelpers)
-│ └── testData/ # Test data generators and data objects
-├── .env.example # Example environment variables file
-├── playwright.config.ts # Playwright configuration
-├── package.json
-└── tsconfig.json
+├─ .github/
+│   └── workflows/
+│       └── playwright.yml          # CI pipeline
+├─ app/
+│   └── ui/
+│       ├── components/             # forms, modals, counters…
+│       └── pages/                  # Page Objects
+├─ fixtures/                        # custom Playwright fixtures
+├─ tests/                           # *.spec.ts files
+├─ decorator/step.ts                # @step implementation
+├─ utils/
+│   ├── helpers/
+│   └── testData/
+├─ .env.example
+├─ playwright.config.ts
+├─ package.json
+└─ tsconfig.json
 
 ## 🚀 Getting Started
 
@@ -91,7 +98,7 @@ The project includes comprehensive reporting features configured in `playwright.
 - **HTML Reports**: After each test run, Playwright generates a self-contained HTML report with detailed information about the run, including test steps, screenshots, and traces. You can view the last report by running:
   ```bash
   npx playwright show-report
-  ```
+````
 
 ```
 
