@@ -110,6 +110,4 @@ The project uses **GitHub Actions** for continuous integration, configured in `.
 - **Parallel Execution**: Tests are configured to run in parallel across all browsers (Chromium, Firefox, WebKit) for faster results.
 - **Environment Variables**: Secure data like `BASE_URL` or API keys are managed through GitHub Actions secrets and passed to the test environment.
 - **Test Results & Artifacts**: After each run, test results are summarized, and the full HTML report is uploaded as a downloadable artifact, available for 30 days.
-- **(Optional) Code Quality**: You can add a step to the workflow to run linters like ESLint (`npm run lint`) to ensure code quality and style consistency.
-
----
+- **ESLint checks**: to ensure code quality.
