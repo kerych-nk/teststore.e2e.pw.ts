@@ -49,6 +49,7 @@ The project is built using the following patterns and approaches to ensure clean
 ├─ playwright.config.ts
 ├─ package.json
 └─ tsconfig.json
+```
 
 ## 🚀 Getting Started
 
