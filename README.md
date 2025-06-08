@@ -86,8 +86,6 @@ npx playwright test --ui
 npx playwright test --project=chromium
 ```
 
-````
-
 ---
 
 ## 📊 Reporting
@@ -125,4 +123,7 @@ The project uses **GitHub Actions** for continuous integration, configured in `.
 ```
 
 ```
-````
+
+```
+
+```
