@@ -30,7 +30,7 @@ The project is built using the following patterns and approaches to ensure clean
 
 ## 📁 Project Structure
 
-````text
+```text
 .
 ├─ .github/
 │   └── workflows/
@@ -97,6 +97,8 @@ The project includes comprehensive reporting features configured in `playwright.
 - **HTML Reports**: After each test run, Playwright generates a self-contained HTML report with detailed information about the run, including test steps, screenshots, and traces. You can view the last report by running:
   ```bash
   npx playwright show-report
+  ```
+
 ````
 
 ```
@@ -117,3 +119,4 @@ The project uses **GitHub Actions** for continuous integration, configured in `.
 
 ---
 ```
+````
