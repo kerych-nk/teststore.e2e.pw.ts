@@ -7,14 +7,12 @@ The goal is to automate key user journeys—product search, cart management, che
 
 ## ✨ Tech Stack
 
-| &nbsp;                                                                                                         | Tool               | Purpose                 |
-| :------------------------------------------------------------------------------------------------------------- | :----------------- | :---------------------- |
-| ![Playwright](https://img.shields.io/badge/Framework-Playwright-45ba63?logo=playwright&logoColor=white)        | **Playwright**     | E2E test framework      |
-| ![TS](https://img.shields.io/badge/Language-TypeScript-3178C6?logo=typescript&logoColor=white)                 | **TypeScript**     | Strongly-typed language |
-| ![Faker.js](https://img.shields.io/badge/Test%20Data-Faker.js-6a2af6)                                          | **Faker**          | Fake data generation    |
-| ![GH Actions](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white) | **GitHub Actions** | CI pipeline             |
-| ![Node](https://img.shields.io/badge/Runtime-Node.js-18+-339933?logo=nodedotjs&logoColor=white)                | **Node.js 18+**    | JavaScript runtime      |
-| ![npm](https://img.shields.io/badge/Package%20Manager-npm-8+-CB3837?logo=npm&logoColor=white)                  | **npm**            | Dependency management   |
+- **Framework**: &nbsp; ![Playwright](https://img.shields.io/badge/Playwright-45ba4b?style=for-the-badge&logo=playwright&logoColor=white)
+- **Language**: &nbsp; ![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=for-the-badge&logo=typescript&logoColor=white)
+- **Test Data**: &nbsp; ![Faker.js](https://img.shields.io/badge/Faker.js-blue?style=flat&logo=faker)
+- **CI/CD**: &nbsp; ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+- **Runtime**: &nbsp; ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+- **Package Manager**: &nbsp; ![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
 
 ---
 
