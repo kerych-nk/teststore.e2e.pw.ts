@@ -60,13 +60,12 @@ The project is built using the following patterns and approaches to ensure clean
 
 ### Installation
 
+````bash
 # Clone the repository
-
-git clone https://github.com/kerych-nk/teststore.e2e.pw.ts
+git clone https://github.com/kerych-nk/teststore.e2e.pw.ts.git
 cd teststore.e2e.pw.ts
 
 # Install dependencies
-
 npm install
 npx playwright install --with-deps
 
@@ -97,7 +96,7 @@ The project includes comprehensive reporting features configured in `playwright.
 - **HTML Reports**: After each test run, Playwright generates a self-contained HTML report with detailed information about the run, including test steps, screenshots, and traces. You can view the last report by running:
   ```bash
   npx playwright show-report
-  ```
+````
 
 ````
 
