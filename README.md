@@ -25,15 +25,62 @@ The project is built using the following patterns and approaches to ensure clean
 
 ## 📁 Project Structure
 
-(Тут залишається твоя структура проекту, яку ми визначили раніше)
+.
+├── .github/
+│ └── workflows/ # GitHub Actions CI/CD configuration
+│ └── playwright.yml # Workflow for running tests and publishing reports
+├── app/
+│ ├── ui/
+│ │ ├── components/ # UI Components (forms, modals, counters, etc.)
+│ │ └── pages/ # Page Object classes and the PageHolder (AllPages)
+│ ├── fixtures/ # Custom Playwright fixtures (guest, loginUser)
+│ └── tests/ # Test files (\_.spec.ts)
+├── decorator/
+│ └── step.ts # Implementation of the @step decorator
+├── utils/
+│ ├── helpers/ # Helper classes (FunctionHelpers)
+│ └── testData/ # Test data generators and data objects
+├── .env.example # Example environment variables file
+├── playwright.config.ts # Playwright configuration
+├── package.json
+└── tsconfig.json
 
 ## 🚀 Getting Started
 
-(Тут залишається секція Getting Started, як раніше)
+### Prerequisites
+
+- **Node.js 18+**
+- **npm 8+** (or Yarn)
+
+### Installation
+
+# Clone the repository
+
+git clone https://github.com/kerych-nk/teststore.e2e.pw.ts
+cd teststore.e2e.pw.ts
+
+# Install dependencies
+
+npm install
+npx playwright install --with-deps
 
 ## ⚙️ Running Tests
 
-(Тут залишається секція Running Tests, як раніше)
+# Run all tests
+
+npx playwright test
+
+# Run a specific test file
+
+npx playwright test tests/search.spec.ts
+
+# Run tests with UI mode for debugging
+
+npx playwright test --ui
+
+# Run tests in a specific browser
+
+npx playwright test --project=chromium
 
 ---
 
@@ -45,9 +92,10 @@ The project includes comprehensive reporting features configured in `playwright.
   ```bash
   npx playwright show-report
   ```
+
+```
+
 - **GitHub Actions Integration**: The latest test report is automatically published as a workflow artifact after each run on GitHub Actions.
-- **(Optional) GitHub Pages**: You can configure your GitHub Actions workflow to automatically publish the HTML report to a public GitHub Pages URL for easy access.
-- **(Optional) CTRF Reporting**: For better integration with CI/CD dashboards, you can configure a [CTRF (Common Test Result Format) reporter](https://github.com/ctrf-io/ctrf).
 
 The latest test report artifact can be found in the "Actions" tab of the GitHub repository after a workflow run is complete.
 
@@ -62,16 +110,4 @@ The project uses **GitHub Actions** for continuous integration, configured in `.
 - **(Optional) Code Quality**: You can add a step to the workflow to run linters like ESLint (`npm run lint`) to ensure code quality and style consistency.
 
 ---
-
-**Що було додано:**
-
-1.  **Секція "Reporting"**:
-    - Описує використання стандартного HTML-звіту Playwright та як його відкрити.
-    - Згадує інтеграцію з артефактами GitHub Actions.
-    - Додано опціональні пункти про GitHub Pages та CTRF, які є хорошими практиками для більш просунутих проектів.
-2.  **Секція "CI/CD Integration"**:
-    - Описує, як саме використовуються GitHub Actions у твоєму проекті.
-    - Згадує автоматичний запуск, паралельне виконання, управління змінними середовища та збереження звітів.
-    - Додано опціональний пункт про перевірку якості коду за допомогою ESLint.
-
-Я також додав відповідні іконки-емодзі до заголовків секцій, щоб зробити їх більш візуально привабливими, як у твоєму прикладі. Цей доповнений `README.md` тепер надає повну картину про твій проект, його структуру, запуск та інтеграції.
+```
