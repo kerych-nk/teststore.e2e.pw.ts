@@ -1,114 +1,77 @@
-# teststore.e2e.pw.ts
+# E2E Test Automation Project
 
-E2E Test Automation Project for an E-commerce Website
-This project contains a suite of E2E (End-to-End) tests for the MyStore website, written using TypeScript and the Playwright framework.
+This project contains a suite of E2E (End-to-End) tests for the [MyStore](https://teststore.automationtesting.co.uk) website, written using TypeScript and the Playwright framework.
 
 The goal of the project is to automate key user interaction scenarios—such as product search, cart management, checkout, and registration—to ensure the quality and stability of the site's functionality.
 
-Technology & Tools
-Framework: Playwright
-Language: TypeScript
-Test Runner: Playwright Test
-Test Data Generation: @faker-js/faker
-Environment Variables: dotenv
-CI/CD: GitHub Actions
-Architecture & Patterns
+## ✨ Tech Stack
+
+- **Framework**: &nbsp; ![Playwright](https://img.shields.io/badge/Playwright-45ba4b?style=for-the-badge&logo=playwright&logoColor=white)
+- **Language**: &nbsp; ![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=for-the-badge&logo=typescript&logoColor=white)
+- **Test Data**: &nbsp; ![Faker.js](https://img.shields.io/badge/Faker.js-blue?style=flat&logo=faker)
+- **CI/CD**: &nbsp; ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+- **Runtime**: &nbsp; ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+- **Package Manager**: &nbsp; ![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
+
+## 🏗️ Architecture & Patterns
+
 The project is built using the following patterns and approaches to ensure clean, maintainable, and scalable code:
 
-Page Object Model (POM): Each page or significant UI block is represented by a separate class (Page Object), which encapsulates the interaction logic for the elements on that page. This separates test logic from page implementation details.
-UI Components: Large or reusable elements (e.g., login forms, headers, modals) are extracted into separate component classes, which are then used by the corresponding Page Objects.
-PageHolder (AllPages in your code): An aggregator class that initializes all Page Objects and provides a centralized access point, making them easily available in tests via a single fixture.
-Custom Playwright Fixtures: Used to prepare the state before test execution. The project defines two main fixture setups:
-guest: Prepares the environment for tests that run as a guest (unauthenticated) user.
-loginUser: Registers and logs in a user via an API call before the test runs, significantly speeding up scenarios that require authentication.
-@step Decorators: A custom decorator is used to wrap Page Object methods into test.step blocks, which greatly enhances the readability and detail of Playwright reports.
+- **Page Object Model (POM)**: Each page or significant UI block is represented by a separate class (Page Object).
+- **UI Components**: Reusable elements (forms, modals, etc.) are extracted into separate component classes.
+- **`PageHolder` (`AllPages` in your code)**: An aggregator class that initializes all Page Objects for centralized access.
+- **Custom Playwright Fixtures**: Used to prepare the state before test execution (`guest`, `loginUser`).
+- **`@step` Decorators**: A custom decorator used to wrap methods into `test.step` blocks for detailed reporting.
 
-Project Structure
-.
-├── app/
-│ ├── ui/
-│ │ ├── components/ # UI Components (forms, modals, counters, etc.)
-│ │ └── pages/ # Page Object classes and the PageHolder (AllPages)
-│ ├── fixtures/ # Custom Playwright fixtures (guest, loginUser)
-│ └── tests/ # Test files (_.test.ts or _.spec.ts)
-├── decorator/
-│ └── step.ts # Implementation of the @step decorator
-├── utils/
-│ ├── helpers/ # Helper classes (FunctionHelpers)
-│ └── testData/ # Test data generators and data objects
-├── .github/workflows/
-│ └── playwright.yml # Configuration for running tests on GitHub Actions
-├── .env.example # Example environment variables file
-├── package.json
-├── playwright.config.ts
-└── tsconfig.json
-Getting Started
-Prerequisites
-Node.js (LTS version recommended)
-npm or yarn
-Installation
-Clone the repository:
-Bash
+## 📁 Project Structure
 
-git clone <your_repository_url>
-cd <project_folder_name>
-Install project dependencies:
-Bash
+(Тут залишається твоя структура проекту, яку ми визначили раніше)
 
-npm install
-Install Playwright browsers:
-Bash
+## 🚀 Getting Started
 
-npx playwright install --with-deps
-Configuration
-Create a .env file in the root of the project. You can copy it from .env.example if it exists.
-Add the necessary environment variables. Currently, only one is required:
-Фрагмент коду
+(Тут залишається секція Getting Started, як раніше)
 
-# .env file
+## ⚙️ Running Tests
 
-BASE_URL=https://teststore.automationtesting.co.uk
-Important: Add the .env file to your .gitignore to avoid committing secrets to the repository.
-Running Tests
-Use the npm scripts defined in package.json to run the tests.
+(Тут залишається секція Running Tests, як раніше)
 
-Run all tests in all configured browsers (Chromium, Firefox, WebKit):
+---
 
-Bash
+## 📊 Reporting
 
-npm test
-Run tests in a specific browser:
+The project includes comprehensive reporting features configured in `playwright.config.ts`.
 
-Bash
+- **HTML Reports**: After each test run, Playwright generates a self-contained HTML report with detailed information about the run, including test steps, screenshots, and traces. You can view the last report by running:
+  ```bash
+  npx playwright show-report
+  ```
+- **GitHub Actions Integration**: The latest test report is automatically published as a workflow artifact after each run on GitHub Actions.
+- **(Optional) GitHub Pages**: You can configure your GitHub Actions workflow to automatically publish the HTML report to a public GitHub Pages URL for easy access.
+- **(Optional) CTRF Reporting**: For better integration with CI/CD dashboards, you can configure a [CTRF (Common Test Result Format) reporter](https://github.com/ctrf-io/ctrf).
 
-npm run test:chromium
-npm run test:firefox
-npm run test:webkit
-Run tests in headed mode (with a visible browser UI):
+The latest test report artifact can be found in the "Actions" tab of the GitHub repository after a workflow run is complete.
 
-Bash
+## 🔄 CI/CD Integration
 
-npx playwright test --headed
-Run a specific test file:
+The project uses **GitHub Actions** for continuous integration, configured in `.github/workflows/playwright.yml`.
 
-Bash
+- **Automated Test Runs**: Tests are automatically triggered on every `push` and `pull_request` to the main branches. You can also trigger runs manually via `workflow_dispatch`.
+- **Parallel Execution**: Tests are configured to run in parallel across all browsers (Chromium, Firefox, WebKit) for faster results.
+- **Environment Variables**: Secure data like `BASE_URL` or API keys are managed through GitHub Actions secrets and passed to the test environment.
+- **Test Results & Artifacts**: After each run, test results are summarized, and the full HTML report is uploaded as a downloadable artifact, available for 30 days.
+- **(Optional) Code Quality**: You can add a step to the workflow to run linters like ESLint (`npm run lint`) to ensure code quality and style consistency.
 
-npx playwright test app/tests/cart.test.ts
-Run tests with the Playwright UI mode for debugging:
+---
 
-Bash
+**Що було додано:**
 
-npx playwright test --ui
-Viewing Reports
-After each test run, Playwright generates a detailed HTML report. To open the last report, run:
+1.  **Секція "Reporting"**:
+    - Описує використання стандартного HTML-звіту Playwright та як його відкрити.
+    - Згадує інтеграцію з артефактами GitHub Actions.
+    - Додано опціональні пункти про GitHub Pages та CTRF, які є хорошими практиками для більш просунутих проектів.
+2.  **Секція "CI/CD Integration"**:
+    - Описує, як саме використовуються GitHub Actions у твоєму проекті.
+    - Згадує автоматичний запуск, паралельне виконання, управління змінними середовища та збереження звітів.
+    - Додано опціональний пункт про перевірку якості коду за допомогою ESLint.
 
-Bash
-
-npm run report
-Or:
-
-Bash
-
-npx playwright show-report
-CI/CD Integration
-The project is configured to automatically run tests on GitHub Actions for every push or pull_request to the main or develop branches. The configuration can be found in .github/workflows/playwright.yml.
+Я також додав відповідні іконки-емодзі до заголовків секцій, щоб зробити їх більш візуально привабливими, як у твоєму прикладі. Цей доповнений `README.md` тепер надає повну картину про твій проект, його структуру, запуск та інтеграції.
