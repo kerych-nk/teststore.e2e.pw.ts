@@ -70,23 +70,23 @@ npm install
 npx playwright install --with-deps
 ```
 
-## ⚙️ Running Tests
+````markdown
+## 🏃‍♂️ Running Tests
 
+```bash
 # Run all tests
-
-npx playwright test
+npm test
 
 # Run a specific test file
-
 npx playwright test tests/search.spec.ts
 
-# Run tests with UI mode for debugging
-
+# Run UI mode for debugging
 npx playwright test --ui
 
-# Run tests in a specific browser
-
+# Run in a specific browser
 npx playwright test --project=chromium
+```
+````
 
 ---
 
