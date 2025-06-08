@@ -93,15 +93,10 @@ npx playwright test --project=chromium
 The project includes comprehensive reporting features configured in `playwright.config.ts`.
 
 - **HTML Reports**: After each test run, Playwright generates a self-contained HTML report with detailed information about the run, including test steps, screenshots, and traces. You can view the last report by running:
+
   ```bash
   npx playwright show-report
   ```
-
-```
-
-```
-
-```
 
 - **GitHub Actions Integration**: The latest test report is automatically published as a workflow artifact after each run on GitHub Actions.
 
@@ -118,12 +113,3 @@ The project uses **GitHub Actions** for continuous integration, configured in `.
 - **(Optional) Code Quality**: You can add a step to the workflow to run linters like ESLint (`npm run lint`) to ensure code quality and style consistency.
 
 ---
-```
-
-```
-
-```
-
-```
-
-```
