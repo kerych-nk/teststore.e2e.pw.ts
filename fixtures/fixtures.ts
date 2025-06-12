@@ -1,6 +1,6 @@
 import { AllPages } from "@app/ui/pages/AllPages";
 import test from "@playwright/test";
-import { getNewUserStorageStateViaAPI } from "@utils/helpers/apiAuthHelpers";
+import { getNewUserStorageStateViaAPI } from "@utils/helpers/index";
 
 type TestFixtures = {
   pages: AllPages;

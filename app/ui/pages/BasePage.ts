@@ -1,6 +1,6 @@
 import { Page } from "@playwright/test";
 import { Loader } from "@components/Loader.component";
-import { FunctionHelpers } from "@helpers/FunctionHelpers";
+import { FunctionHelpers } from "@helpers/index";
 import { step } from "@decorator/step";
 
 export abstract class BasePage {
